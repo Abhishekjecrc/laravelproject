@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\productdetails;
+use App\Http\Controllers\productlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,14 +22,7 @@ Route::get('/', function () {
 
 
 
-Route::get('/header', function () {
-    return view('header');
-});
 
-
-Route::get('/admin', function () {
-    return view('admin');
-});
 
 //Auth::routes();
 Route::get('/category', [CategoryController::class, 'data']);
@@ -59,6 +53,4 @@ Route :: get('/form', function(){
 Route :: get('/adddetails', [productdetails :: class,'getdetails']);
 Route ::POST('/adddata',[productdetails::class,'formsubmit']);
 
-Route :: get('/product' ,function(){
-      return view('product');
-});
+Route :: get('/product',[productlistController::class,'productlist']);
